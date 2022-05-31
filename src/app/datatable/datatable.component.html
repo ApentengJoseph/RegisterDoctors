@@ -1,0 +1,41 @@
+<div class="search-box">
+  <input
+    type="text"
+    placeholder="Search doctors"
+    class="search"
+    [(ngModel)]="_filterText"
+  />
+</div>
+<span><h3>Doctor's List</h3></span>
+
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>City</th>
+    <th>Website</th>
+  </thead>
+  <tbody>
+    <!--Looping over the Doctors list-->
+    <tr *ngFor="let user of userDisplay | filter: _filterText">
+      <td>{{ user.name }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.address.city }}</td>
+      <td>{{ user.website }}</td>
+    </tr>
+
+    <!--Looping over the added Doctors-->
+    <tr *ngFor="let users of user | filter: _filterText">
+      <td>{{users.name}}</td>
+      <td>{{users.username}}</td>
+      <td>{{users.email}}</td>
+      <td>{{users.phone}}</td>
+      <td>{{users.city}}</td>
+      <td>{{users.website}}</td>
+    </tr> 
+  </tbody>
+</table>

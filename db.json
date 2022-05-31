@@ -1,0 +1,32 @@
+{
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Graham Duke",
+      "username": "Duke123",
+      "email": "typicode@PIS",
+      "phone": "081-679-0468",
+      "city": "Makurdi",
+      "website": "https://example.com"
+    },
+    {
+      "name": "Apenteng",
+      "username": "Joseph",
+      "email": "apentengjoseph59@gmail.com",
+      "phone": "000-000-0000",
+      "city": "Makurdi",
+      "website": "https://",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

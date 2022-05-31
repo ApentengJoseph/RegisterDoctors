@@ -1,0 +1,146 @@
+<div class="container">
+  <div class="input-Container">
+    <h3>Register new doctor</h3>
+    <form (ngSubmit)="register()" [formGroup]="doctorsForm" class="form">
+      <div class="input">
+        <span>
+          <h5>Name</h5>
+          <input
+            type="text"
+            formControlName="name"
+            [ngClass]="{
+              'is-invalid':
+                (doctorsForm.controls['name'].touched ||
+                  doctorsForm.controls['name'].dirty) &&
+                !doctorsForm.controls['name'].valid
+            }"
+          />
+          <small
+            *ngIf="doctorsForm.controls['name'].errors?.['required'] && (doctorsForm.controls['name'].touched ||
+          doctorsForm.controls['name'].dirty)"
+            >Name is required</small
+          >
+        </span>
+        <span>
+          <h5>Phone</h5>
+          <input
+            type="tel"
+            formControlName="phone"
+            [pattern]="phonePattern"
+            [ngClass]="{
+              'is-invalid':
+                (doctorsForm.controls['phone'].touched ||
+                  doctorsForm.controls['phone'].dirty) &&
+                !doctorsForm.controls['phone'].valid
+            }"
+          />
+          <small *ngIf="doctorsForm.controls['phone'].errors?.['pattern']"
+            >Please input a valid number.e.g(000-000-00000)</small
+          >
+          <small
+            *ngIf="doctorsForm.controls['phone'].errors?.['required'] && (doctorsForm.controls['phone'].touched ||
+          doctorsForm.controls['phone'].dirty)"
+            >Phone number is required</small
+          >
+        </span>
+      </div>
+      <div class="input">
+        <span>
+          <h5>Username</h5>
+          <input
+            type="text"
+            formControlName="username"
+            [ngClass]="{
+              'is-invalid':
+                (doctorsForm.controls['username'].touched ||
+                  doctorsForm.controls['username'].dirty) &&
+                !doctorsForm.controls['username'].valid
+            }"
+          />
+          <small
+            *ngIf="doctorsForm.controls['username'].errors?.['required'] && (doctorsForm.controls['username'].touched ||
+          doctorsForm.controls['username'].dirty)"
+            >Username is a required field.</small
+          >
+        </span>
+        <span>
+          <h5>City</h5>
+          <input
+            type="text"
+            formControlName="city"
+            [ngClass]="{
+              'is-invalid':
+                (doctorsForm.controls['city'].touched ||
+                  doctorsForm.controls['city'].dirty) &&
+                !doctorsForm.controls['city'].valid
+            }"
+          />
+          <small
+            *ngIf="doctorsForm.controls['city'].errors?.['required'] && (doctorsForm.controls['city'].touched ||
+          doctorsForm.controls['city'].dirty) "
+            >City is required</small
+          >
+        </span>
+      </div>
+      <div class="input">
+        <span>
+          <h5>Email</h5>
+          <input
+            type="text"
+            formControlName="email"
+            [ngClass]="{
+              'is-invalid':
+                (doctorsForm.controls['email'].touched ||
+                  doctorsForm.controls['email'].dirty) &&
+                !doctorsForm.controls['email'].valid
+            }"
+          />
+          <small
+            *ngIf="
+              doctorsForm.controls['email'].errors?.['email']
+            "
+            >Please type a valid email.</small
+          >
+          <small
+            *ngIf="doctorsForm.controls['email'].errors?.['required'] && (doctorsForm.controls['email'].touched ||
+          doctorsForm.controls['email'].dirty)"
+          >
+            Please type your email.
+          </small>
+        </span>
+        <span>
+          <h5>Website</h5>
+          <input
+            type="url"
+            formControlName="website"
+            [pattern]="websitePattern"
+            [ngClass]="{
+              'is-invalid':
+                (doctorsForm.controls['website'].touched ||
+                  doctorsForm.controls['website'].dirty) &&
+                !doctorsForm.controls['website'].valid
+            }"
+          />
+          <small
+            *ngIf="doctorsForm.controls['website'].errors?.['required'] && (doctorsForm.controls['website'].touched ||
+          doctorsForm.controls['website'].dirty)"
+            >Please provide a website.</small
+          >
+          <small *ngIf="doctorsForm.controls['website'].errors?.['pattern']"
+            >Please provide a valid website.E.g https://</small
+          >
+        </span>
+      </div>
+    </form>
+    <div class="button">
+      <button
+        type="submit"
+        (click)="register()"
+        [disabled]="!doctorsForm.valid"
+      >
+        Register
+      </button>
+    </div>
+    <app-datatable></app-datatable>
+  </div>
+</div>
